@@ -1,0 +1,10 @@
+- GitHub: Controle de versão;
+- brModelo: Diagrama entidade relacionamento;
+- Trello: Gerenciamento de projeto;
+- Visual Studio Code: Editor de código;
+- Flutter: Interfaces gráficas;
+- PHP: API;
+- Figma: Design de interfaces;
+- Google Documents: Requisitos do sistema;
+- 000webhost: Hospedagem da API;
+- Google Chrome: Navegador.
