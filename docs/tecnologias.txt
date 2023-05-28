@@ -2,9 +2,10 @@
 - brModelo: Diagrama entidade relacionamento;
 - Trello: Gerenciamento de projeto;
 - Visual Studio Code: Editor de código;
-- Flutter: Interfaces gráficas;
-- PHP: API;
-- Figma: Design de interfaces;
+- Flutter e Dart: Código-fonte das interfaces gráficas;
+- PHP: Código-fonte da API;
+- Figma: Design das interfaces gráficas;
 - Google Documents: Requisitos do sistema;
 - 000webhost: Hospedagem da API;
-- Google Chrome: Navegador.
+- Insomnia: Testagem da API;
+- Google Chrome: Acesso online à API.
