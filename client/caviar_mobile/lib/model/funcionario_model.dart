@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 
 class FuncionarioModel {
@@ -21,20 +19,21 @@ class FuncionarioModel {
     this.celular,
   });
 
-  Future<bool> salvar() async {
-    var urlString = 'https://menu-caviar.000webhostapp.com/add.php/funcionarios';
-    urlString += '?nome=$nome';
-    urlString += '&sobrenome=$sobrenome';
-    urlString += '&email=$email';
-    urlString += '&senha=$senha';
-    urlString += '&cpf=$cpf';
-    urlString += '&data_nascimento=$dataNascimento';
-    urlString += '&celular=$celular';
+  Future<void> salvar() async {
+    try {
+      var urlString =
+          'https://menu-caviar.000webhostapp.com/add.php/funcionarios';
+      urlString += '?nome=$nome';
+      urlString += '&sobrenome=$sobrenome';
+      urlString += '&email=$email';
+      urlString += '&senha=$senha';
+      urlString += '&cpf=$cpf';
+      urlString += '&data_nascimento=$dataNascimento';
+      urlString += '&celular=$celular';
 
-    var resposta = await http.post(Uri.parse(urlString));
-    print('Response status: ${resposta.statusCode}');
-    print('Response body: ${resposta.body}');
-    
-    return jsonDecode(resposta.body)['status'];
+      await http.post(Uri.parse(urlString));
+    } catch (error) {
+      rethrow;
+    }
   }
 }
