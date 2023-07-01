@@ -63,6 +63,7 @@ class _CampoFormularioState extends State<CampoFormulario> {
             alignment: Alignment.topRight,
             children: [
               TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: _controlador,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(

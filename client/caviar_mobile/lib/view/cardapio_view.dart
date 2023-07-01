@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './clientes_cadastrar_view.dart';
 import './funcionario_cadastrar_view.dart';
 import './produto_cadastrar_view.dart';
 import '../widgets/app_bar_customizada.dart';
@@ -26,6 +27,12 @@ class CardapioView extends StatelessWidget {
             child: const Text('Produto'),
             onPressed: () {
               Navigator.pushNamed(context, ProdutoCadastrarView.rota);
+            },
+          ),
+          ElevatedButton(
+            child: const Text('Cliente'),
+            onPressed: () {
+              Navigator.pushNamed(context, ClientesCadastrarView.rota);
             },
           ),
         ],

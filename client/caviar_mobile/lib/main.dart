@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './view/cardapio_view.dart';
+import './view/clientes_cadastrar_view.dart';
 import 'view/funcionario_cadastrar_view.dart';
 import 'view/produto_cadastrar_view.dart';
 
@@ -22,6 +23,7 @@ class Caviar extends StatelessWidget {
       initialRoute: CardapioView.rota,
       routes: {
         CardapioView.rota: (contexto) => const CardapioView(),
+        ClientesCadastrarView.rota: (contexto) => const ClientesCadastrarView(),
         FuncionarioCadastrarView.rota: (contexto) => const FuncionarioCadastrarView(),
         ProdutoCadastrarView.rota: (contexto) => const ProdutoCadastrarView(),
       },
