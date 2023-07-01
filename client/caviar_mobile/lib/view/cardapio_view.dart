@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './funcionario_cadastrar_view.dart';
+import './produto_cadastrar_view.dart';
 import '../widgets/app_bar_customizada.dart';
 
 class CardapioView extends StatelessWidget {
@@ -13,11 +14,21 @@ class CardapioView extends StatelessWidget {
     return Scaffold(
       appBar: const AppBarCustomizada(textoTitulo: 'Cardápio'),
       backgroundColor: const Color(0xFFFFFFFF),
-      body: ElevatedButton(
-        child: const Text('Funcionário'),
-        onPressed: () {
-          Navigator.pushNamed(context, FuncionarioCadastrarView.rota);
-        },
+      body: Column(
+        children: [
+          ElevatedButton(
+            child: const Text('Funcionário'),
+            onPressed: () {
+              Navigator.pushNamed(context, FuncionarioCadastrarView.rota);
+            },
+          ),
+          ElevatedButton(
+            child: const Text('Produto'),
+            onPressed: () {
+              Navigator.pushNamed(context, ProdutoCadastrarView.rota);
+            },
+          ),
+        ],
       ),
     );
   }
