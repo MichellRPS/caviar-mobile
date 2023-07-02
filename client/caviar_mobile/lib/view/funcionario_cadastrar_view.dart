@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../model/funcionario_model.dart';
 import '../widgets/app_bar_customizada.dart';
-import '../widgets/botao_formulario.dart';
+import '../widgets/botao.dart';
 import '../widgets/campo_formulario.dart';
 import '../constantes.dart';
 
@@ -210,8 +210,8 @@ class _FuncionarioCadastrarViewState extends State<FuncionarioCadastrarView> {
                         return null;
                       },
                     ),
-                    BotaoFormulario(
-                      salvar: () async {
+                    Botao(
+                      pressionar: () async {
                         if (!_chaveFormulario.currentState!.validate()) {
                           return;
                         }
@@ -249,7 +249,7 @@ class _FuncionarioCadastrarViewState extends State<FuncionarioCadastrarView> {
                           loading = false;
                         });
                       },
-                      textoBotao: 'Cadastrar',
+                      texto: 'Cadastrar',
                     ),
                   ],
                 ),

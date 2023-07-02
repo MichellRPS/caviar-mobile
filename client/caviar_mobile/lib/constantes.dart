@@ -37,6 +37,12 @@ const estiloFonteBotao2 = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const estiloTextButton = TextStyle(
+  color: preto,
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+);
+
 const estiloFonteErro = TextStyle(
   color: Color(0xFFFD3B11),
   fontSize: 14,

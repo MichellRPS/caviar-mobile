@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
-class BotaoFormulario extends StatelessWidget {
-  final void Function()? salvar;
-  final String textoBotao;
+import '../constantes.dart';
 
-  const BotaoFormulario({
-    required this.salvar,
+class Botao extends StatelessWidget {
+  final void Function()? pressionar;
+  final double? altura;
+  final String texto;
+
+  const Botao({
     super.key,
-    required this.textoBotao,
+    required this.pressionar,
+    this.altura,
+    required this.texto,
   });
 
   @override
@@ -18,11 +22,12 @@ class BotaoFormulario extends StatelessWidget {
         vertical: 10,
       ),
       child: SizedBox(
+        height: altura,
         width: double.infinity,
         child: ElevatedButton(
-          onPressed: salvar,
+          onPressed: pressionar,
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFFFD3B11),
+            backgroundColor: vermelho,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
@@ -30,12 +35,8 @@ class BotaoFormulario extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Text(
-              textoBotao,
-              style: const TextStyle(
-                color: Color(0xFFFFFFFF),
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+              texto,
+              style: estiloFonteBotao1,
             ),
           ),
         ),

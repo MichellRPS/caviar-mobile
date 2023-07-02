@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../model/produto_model.dart';
 import '../widgets/app_bar_customizada.dart';
-import '../widgets/botao_formulario.dart';
+import '../widgets/botao.dart';
 import '../widgets/campo_formulario.dart';
 import '../widgets/carregamento.dart';
 import '../constantes.dart';
@@ -89,8 +89,8 @@ class _ProdutoCadastrarViewState extends State<ProdutoCadastrarView> {
                       },
                     ),
                     // TODO: categoria do produto
-                    BotaoFormulario(
-                      salvar: () async {
+                    Botao(
+                      pressionar: () async {
                         if (!_chaveFormulario.currentState!.validate()) {
                           return;
                         }
@@ -120,7 +120,7 @@ class _ProdutoCadastrarViewState extends State<ProdutoCadastrarView> {
                           carregando = false;
                         });
                       },
-                      textoBotao: 'Cadastrar',
+                      texto: 'Cadastrar',
                     ),
                   ],
                 ),
