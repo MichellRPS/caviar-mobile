@@ -88,7 +88,7 @@ Segue os mesmos parâmetros da inclusão, com excessão da inclusão do id da tu
 #### Produto
 
 ```http
-  POST /add.php/produtos/${parametros}&id=${parametros}
+  POST /update.php/produtos/${parametros}&id=${parametros}
 ```
 
 | Parâmetro   | Tipo       | Descrição                                   |
