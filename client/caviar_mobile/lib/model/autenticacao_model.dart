@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class AutenticacaoModel {
   String? email;
@@ -9,7 +8,7 @@ class AutenticacaoModel {
 
   AutenticacaoModel({this.email, this.senha});
 
-  Future<bool> autenticar() async {
+  Future<Map<String, dynamic>?> autenticar() async {
     try {
       var resposta = await http.post(
         Uri.parse('https://menu-caviar.000webhostapp.com/auth.php/login'),
@@ -24,28 +23,10 @@ class AutenticacaoModel {
       Map<String, dynamic> dados = jsonDecode(resposta.body);
 
       if (dados['status'] == 'success') {
-        Map<String, dynamic> usuario = dados['usuario'];
-
-        var shared = await SharedPreferences.getInstance();
-        shared.setString(
-          'usuario',
-          jsonEncode({
-            'id': usuario['id'],
-            'nome': usuario['nome'],
-            'sobrenome': usuario['sobrenome'],
-            'email': usuario['email'],
-            'senha': usuario['senha'],
-            'cpf': usuario['cpf'],
-            'data_nascimento': usuario['data_nascimento'],
-            'celular': usuario['celular'],
-            'tipo': usuario['tipo'],
-          }),
-        );
-
-        return true;
+        return dados['usuario'];
       }
 
-      return false;
+      return null;
     } catch (error) {
       rethrow;
     }

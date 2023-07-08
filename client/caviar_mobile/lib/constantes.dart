@@ -11,6 +11,7 @@ const vermelho = Color(0xFFFD3B11);
 const branco = Color(0xFFFFFFFF);
 const preto = Color(0xFF19191A);
 const cinza = Color(0xFFE4E4E4);
+const cinzaEscuro = Color(0xFF50545C);
 
 // Estilos de fonte
 

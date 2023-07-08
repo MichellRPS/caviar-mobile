@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../view/autenticacao_view.dart';
+import '../view/clientes_perfil_view.dart';
 import '../constantes.dart';
 
 class Layout extends StatelessWidget {
@@ -8,6 +8,7 @@ class Layout extends StatelessWidget {
   final bool carregando;
   final Widget conteudo;
   final String titulo;
+  final Map<String, dynamic>? usuario;
 
   const Layout({
     super.key,
@@ -15,6 +16,7 @@ class Layout extends StatelessWidget {
     required this.carregando,
     required this.conteudo,
     required this.titulo,
+    required this.usuario,
   });
 
   @override
@@ -59,6 +61,7 @@ class Layout extends StatelessWidget {
             )
           : conteudo,
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: branco,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
@@ -66,7 +69,9 @@ class Layout extends StatelessWidget {
           ),
           BottomNavigationBarItem(icon: Icon(Icons.edit_outlined), label: ''),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined), label: ''),
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: '',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_outlined),
             label: '',
@@ -75,7 +80,6 @@ class Layout extends StatelessWidget {
         onTap: (indice) {
           switch (indice) {
             case 0:
-              print(0);
               break;
 
             case 1:
@@ -87,11 +91,19 @@ class Layout extends StatelessWidget {
               break;
 
             case 3:
-              Navigator.pushNamed(context, AutenticacaoView.rota);
+              Navigator.pushNamed(
+                context,
+                ClientesPerfilView.rota,
+                arguments: usuario,
+              );
               break;
           }
         },
+        selectedItemColor: vermelho,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
+        unselectedItemColor: vermelho,
       ),
     );
   }

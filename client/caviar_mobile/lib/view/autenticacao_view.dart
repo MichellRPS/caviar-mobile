@@ -9,7 +9,7 @@ import '../widgets/layout.dart';
 import '../constantes.dart';
 
 class AutenticacaoView extends StatefulWidget {
-  static const rota = '/autenticacao';
+  static const rota = '/';
 
   const AutenticacaoView({super.key});
 
@@ -25,6 +25,7 @@ class _AutenticacaoViewState extends State<AutenticacaoView> {
   @override
   Widget build(BuildContext context) {
     return Layout(
+      botaoVoltar: false,
       carregando: carregando,
       conteudo: Form(
         key: _chaveFormulario,
@@ -94,9 +95,15 @@ class _AutenticacaoViewState extends State<AutenticacaoView> {
                   try {
                     _chaveFormulario.currentState!.save();
 
-                    if (await autenticacaoModel.autenticar()) {
+                    var usuario = await autenticacaoModel.autenticar();
+                    
+                    if (usuario != null) {
                       // ignore: use_build_context_synchronously
-                      Navigator.pushNamed(context, CardapioView.rota);
+                      Navigator.pushReplacementNamed(
+                        context,
+                        CardapioView.rota,
+                        arguments: usuario,
+                      );
                     } else {
                       // ignore: use_build_context_synchronously
                       exibirMensagem(
@@ -139,6 +146,7 @@ class _AutenticacaoViewState extends State<AutenticacaoView> {
         ),
       ),
       titulo: 'Autenticação',
+      usuario: null,
     );
   }
 }
