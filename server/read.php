@@ -121,6 +121,46 @@ try {
     header('Content-Type: application/json');
     echo json_encode($response);
 }
+
+if ($route === '/read.php/cidades') {
+    $statement = $pdo->query('SELECT * FROM cidades;');
+    $response = array();
+
+    while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $cidades = array(
+            'id' => $result["id"],
+            'id_estado' => $result["id_estado"],
+            'nome' => $result["nome"]
+        );
+        $response[] = $cidades;
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($response);
+} 
+
+// curl -X POST -d "id_estado=13" https://menu-caviar.000webhostapp.com/read.php/cidades/estado
+if ($route === '/read.php/cidades/estado' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $statement = $pdo->prepare('SELECT * FROM cidades WHERE id_estado = :id_estado;');
+    $statement->bindValue(':id_estado', $_POST['id_estado']);
+    
+    $response = array();
+
+    if ($statement->execute()) {
+        while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $cidades = array(
+                'id' => $result["id"],
+                'nome' => $result["nome"]
+            );
+            $response[] = $cidades;
+        }
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($response);
+} 
+
 ?>
  
 
