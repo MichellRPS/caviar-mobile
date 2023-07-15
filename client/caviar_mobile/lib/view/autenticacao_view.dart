@@ -25,6 +25,7 @@ class _AutenticacaoViewState extends State<AutenticacaoView> {
   @override
   Widget build(BuildContext context) {
     return Layout(
+      barraNavegacao: false,
       botaoVoltar: false,
       carregando: carregando,
       conteudo: Form(

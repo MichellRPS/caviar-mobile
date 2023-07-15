@@ -91,6 +91,7 @@ class ClientesPerfilView extends StatelessWidget {
           ],
         ),
       ),
+      indiceSelecionado: 4,
       titulo: 'Meu Perfil',
       usuario: usuario,
     );
