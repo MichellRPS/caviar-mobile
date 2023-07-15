@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../view/cardapio_view.dart';
 import '../view/clientes_perfil_view.dart';
 import '../view/produto_cadastrar_view.dart';
 import '../constantes.dart';
@@ -24,6 +25,7 @@ class Layout extends StatelessWidget {
     required this.usuario,
   });
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -92,7 +94,13 @@ class Layout extends StatelessWidget {
               onTap: (indice) {
                 switch (indice) {
                   case 0:
-                    print(0);
+                    if (indiceSelecionado != 0) {
+                      Navigator.pushNamed(
+                        context,
+                        CardapioView.rota,
+                        arguments: usuario,
+                      );
+                    }
                     break;
 
                   case 1:
@@ -100,11 +108,13 @@ class Layout extends StatelessWidget {
                     break;
 
                   case 2:
-                    Navigator.pushNamed(
-                      context,
-                      ProdutoCadastrarView.rota,
-                      arguments: usuario,
-                    );
+                    if (indiceSelecionado != 2) {
+                      Navigator.pushNamed(
+                        context,
+                        ProdutoCadastrarView.rota,
+                        arguments: usuario,
+                      );
+                    }
                     break;
 
                   case 3:
@@ -112,11 +122,13 @@ class Layout extends StatelessWidget {
                     break;
 
                   case 4:
-                    Navigator.pushNamed(
-                      context,
-                      ClientesPerfilView.rota,
-                      arguments: usuario,
-                    );
+                    if (indiceSelecionado != 4) {
+                      Navigator.pushNamed(
+                        context,
+                        ClientesPerfilView.rota,
+                        arguments: usuario,
+                      );
+                    }
                     break;
                 }
               },

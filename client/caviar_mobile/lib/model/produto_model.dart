@@ -37,4 +37,35 @@ class ProdutoModel {
       rethrow;
     }
   }
+
+  static Future<List<ProdutoModel>> ler() async {
+    List<ProdutoModel> produtos = [];
+
+    try {
+      var resposta = await get(
+        Uri.parse('https://menu-caviar.000webhostapp.com/read.php/produtos'),
+      );
+
+      List<dynamic> dados = jsonDecode(resposta.body);
+
+      if (dados.isNotEmpty) {
+        for (var dado in dados) {
+          produtos.add(
+            ProdutoModel(
+              id: dado['id'],
+              idCategoria: dado['id_categoria'],
+              descricao: dado['descricao'],
+              imagem: dado['imagem'],
+              nome: dado['nome'],
+              precoUnitario: dado['preco_unitario'],
+            ),
+          );
+        }
+      }
+    } catch (error) {
+      rethrow;
+    }
+
+    return produtos;
+  }
 }

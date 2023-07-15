@@ -1,49 +1,58 @@
 import 'package:flutter/material.dart';
 
+import '../model/produto_model.dart';
 import '../constantes.dart';
 
 class CardapioProduto extends StatelessWidget {
-  const CardapioProduto({super.key});
+  final ProdutoModel produto;
+
+  const CardapioProduto({
+    super.key,
+    required this.produto,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: cinza,
-      ),
-      height: MediaQuery.of(context).size.height * 0.25,
-      width: MediaQuery.of(context).size.width * 0.425,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: cinzaEscuro,
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: cinza,
+        ),
+        height: MediaQuery.of(context).size.height * 0.4,
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: cinzaEscuro,
+              ),
+              height: MediaQuery.of(context).size.height * 0.2,
+              width: MediaQuery.of(context).size.width * 0.5,
             ),
-            height: MediaQuery.of(context).size.height * 0.125,
-            width: MediaQuery.of(context).size.width * 0.39,
-          ),
-          const Text(
-            'Pizza Portuguesa',
-            style: estiloFonteTexto,
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: vermelho,
+            Text(
+              produto.nome!,
+              style: estiloFonteTexto,
             ),
-            height: MediaQuery.of(context).size.height * 0.0425,
-            width: MediaQuery.of(context).size.width * 0.39,
-            child: const Center(
-              child: Text(
-                'RS 59,90',
-                style: estiloFonteBotao1,
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: vermelho,
+              ),
+              height: MediaQuery.of(context).size.height * 0.0425,
+              width: MediaQuery.of(context).size.width * 0.39,
+              child: Center(
+                child: Text(
+                  'R\$ ${produto.precoUnitario!}',
+                  style: estiloFonteBotao1,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
